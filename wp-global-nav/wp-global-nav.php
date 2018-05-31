@@ -10,7 +10,7 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           Wp_Global_Nav
  *
  * @wordpress-plugin
  * Plugin Name:       Global Navigation
@@ -43,7 +43,7 @@ define( 'WP_GLOBAL_NAV_VERSION', '1.0.0' );
  */
 function activate_wp_global_nav() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-global-nav-activator.php';
-	Plugin_Name_Activator::activate();
+	Wp_Global_Nav_Activator::activate();
 }
 
 /**
@@ -52,7 +52,7 @@ function activate_wp_global_nav() {
  */
 function deactivate_wp_global_nav() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-global-nav-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	Wp_Global_Nav_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wp_global_nav' );
@@ -75,7 +75,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-global-nav.php';
  */
 function run_wp_global_nav() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new Wp_Global_Nav();
 	$plugin->run();
 
 }

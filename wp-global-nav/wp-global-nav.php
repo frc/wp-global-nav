@@ -105,5 +105,93 @@ function run_wp_global_nav() {
 
 	endif;
 
+	/* Plugin admin menu settings */
+
+	add_action( 'admin_menu', 'wp_global_nav_add_admin_menu' );
+	add_action( 'admin_init', 'wp_global_nav_settings_init' );
+
+
+	function wp_global_nav_add_admin_menu() { 
+
+		add_options_page( 'Global Navigation', 'Global Navigation', 'manage_options', 'global_navigation', 'wp_global_nav_options_page' );
+
+	}
+
+
+	function wp_global_nav_settings_init() { 
+
+		register_setting( 'pluginPage', 'wp_global_nav_settings' );
+
+		add_settings_section(
+			'wp_global_nav_pluginPage_section', 
+			'', 
+			'', 
+			'pluginPage'
+		);
+
+		add_settings_field( 
+			'wp_global_nav_textarea_field_0', 
+			__( 'CSS', 'wordpress' ), 
+			'wp_global_nav_textarea_field_0_render', 
+			'pluginPage', 
+			'wp_global_nav_pluginPage_section' 
+		);
+
+
+	}
+
+
+	function wp_global_nav_textarea_field_0_render() { 
+
+		$options = get_option( 'wp_global_nav_settings' );
+		?>
+		<textarea cols='40' rows='5' name='wp_global_nav_settings[wp_global_nav_textarea_field_0]'> 
+			<?php echo $options['wp_global_nav_textarea_field_0']; ?>
+		</textarea>
+		<?php
+
+	}
+
+
+	function wp_global_nav_options_page() { 
+
+		?>
+		<form action='options.php' method='post'>
+
+			<h1>Global Navigation</h1>
+
+			<?php
+			settings_fields( 'pluginPage' );
+			do_settings_sections( 'pluginPage' );
+			submit_button();
+
+			echo __( 'Dummy example element:', 'wordpress' );
+			echo "<br>";
+
+			echo '<code>&lt;wp-global-nav url="http://localhost:5000/wp-json/wp-global-nav/v2/menus/12"&gt;&lt;/wp-global-nav&gt;';
+			echo '&lt;script src="http://localhost:5000/wp-global-nav.js"&gt;&lt;/script&gt;</code>';
+			echo "<br>";
+
+			echo '<wp-global-nav url="http://localhost:5000/wp-json/wp-global-nav/v2/menus/"></wp-global-nav>';
+			echo '<script src="https://wordpress-global-nav-67052.firebaseapp.com/wp-global-nav.js"></script>';
+
+			?>
+
+			<a href="https://github.com/samuliristimaki/wordpress-global-nav-plugin" style="position: absolute; bottom: 0;">Project source</a>
+
+		</form>
+		<?php
+
+	}
+
+	function wp_global_nav_add_settings_link( $links ) {
+		$settings_link = '<a href="options-general.php?page=global_navigation">' . __( 'Settings' ) . '</a>';
+		array_unshift( $links, $settings_link );
+		return $links;
+	}
+
+	$plugin = plugin_basename( __FILE__ );
+	add_filter( "plugin_action_links_$plugin", 'wp_global_nav_add_settings_link' );
+
 }
 run_wp_global_nav();

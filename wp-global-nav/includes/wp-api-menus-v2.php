@@ -1,7 +1,7 @@
 <?php
 /**
  * WP REST API Menu routes
- * In V2 the route is located at wp-json/wp-api-menus/v2/menus/
+ * In V2 the route is located at wp-json/wp-global-nav/v2/menus/
  * @package WP_API_Menus
  */
 

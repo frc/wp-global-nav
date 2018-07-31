@@ -73,7 +73,7 @@ class Wp_Global_Nav_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->wp_global_nav, plugin_dir_url( __FILE__ ) . 'css/wp-global-nav-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->wp_global_nav, plugin_dir_url( __FILE__ ) . 'css/wp-global-nav.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Wp_Global_Nav_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->wp_global_nav, plugin_dir_url( __FILE__ ) . 'js/wp-global-nav-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->wp_global_nav, plugin_dir_url( __FILE__ ) . 'js/wp-global-nav.js', array( 'jquery' ), $this->version, false );
 
 	}
 

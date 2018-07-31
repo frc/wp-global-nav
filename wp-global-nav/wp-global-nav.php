@@ -130,13 +130,31 @@ function run_wp_global_nav() {
 		);
 
 		add_settings_field( 
-			'wp_global_nav_textarea_field_0', 
-			__( 'CSS', 'wordpress' ), 
-			'wp_global_nav_textarea_field_0_render', 
+			'wp_global_nav_text_field_0', 
+			__( 'Nav ID', 'wordpress' ), 
+			'wp_global_nav_text_field_0_render', 
 			'pluginPage', 
 			'wp_global_nav_pluginPage_section' 
 		);
 
+		/*
+		add_settings_field( 
+			'wp_global_nav_textarea_field_0', 
+			__( 'CSS Code', 'wordpress' ), 
+			'wp_global_nav_textarea_field_0_render', 
+			'pluginPage', 
+			'wp_global_nav_pluginPage_section' 
+		);
+		*/
+
+	}
+
+	function wp_global_nav_text_field_0_render() { 
+
+		$options = get_option( 'wp_global_nav_settings' );
+		?>
+		<input type="text" name='wp_global_nav_settings[wp_global_nav_text_field_0]' value='<?php echo $options['wp_global_nav_text_field_0']; ?>'/>
+		<?php
 
 	}
 
@@ -145,8 +163,8 @@ function run_wp_global_nav() {
 
 		$options = get_option( 'wp_global_nav_settings' );
 		?>
-		<textarea cols='40' rows='5' name='wp_global_nav_settings[wp_global_nav_textarea_field_0]'> 
-			<?php echo $options['wp_global_nav_textarea_field_0']; ?>
+		<textarea disabled cols='40' rows='5' name='wp_global_nav_settings[wp_global_nav_textarea_field_0]'> 
+			/* WIP */
 		</textarea>
 		<?php
 
@@ -155,6 +173,7 @@ function run_wp_global_nav() {
 
 	function wp_global_nav_options_page() { 
 
+		$options = get_option( 'wp_global_nav_settings' );
 		?>
 		<form action='options.php' method='post'>
 
@@ -165,15 +184,20 @@ function run_wp_global_nav() {
 			do_settings_sections( 'pluginPage' );
 			submit_button();
 
-			echo __( 'Dummy example element:', 'wordpress' );
+			echo __( 'Custom element:', 'wordpress' );
 			echo "<br>";
 
-			echo '<code>&lt;wp-global-nav url="http://localhost:5000/wp-json/wp-global-nav/v2/menus/12"&gt;&lt;/wp-global-nav&gt;';
-			echo '&lt;script src="http://localhost:5000/wp-global-nav.js"&gt;&lt;/script&gt;</code>';
+			echo '<code style="display: inline-block; margin: 10px 1px 25px;">&lt;wp-global-nav url="'.home_url().'/wp-json/wp-global-nav/v2/menus/'.$options['wp_global_nav_text_field_0'].'"&gt;&lt;/wp-global-nav&gt;';
+			echo '&lt;script src="'.home_url().'/app/plugins/wp-global-nav/public/js/wp-global-nav.js"&gt;&lt;/script&gt;</code>';
 			echo "<br>";
 
-			echo '<wp-global-nav url="http://localhost:5000/wp-json/wp-global-nav/v2/menus/"></wp-global-nav>';
-			echo '<script src="https://wordpress-global-nav-67052.firebaseapp.com/wp-global-nav.js"></script>';
+			echo __( 'Preview:', 'wordpress' );
+			echo "<br>";
+
+			echo '<div style="width: 99%; height: 500px; background: white;">';
+			echo '<wp-global-nav url="'.home_url().'/wp-json/wp-global-nav/v2/menus/'.$options['wp_global_nav_text_field_0'].'"></wp-global-nav>';
+			echo '<script src="'.home_url().'/app/plugins/wp-global-nav/public/js/wp-global-nav.js"></script>';
+			echo '</div>';
 
 			?>
 

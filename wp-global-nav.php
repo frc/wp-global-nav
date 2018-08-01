@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Global Navigation
- * Plugin URI:        https://wordpress-global-nav-67052.firebaseapp.com/
+ * Plugin URI:        https://github.com/samuliristimaki/wp-global-nav
  * Description:       A WordPress Plugin.
  * Version:           1.0.0
  * Author:            Samuli Ristimäki
@@ -201,7 +201,7 @@ function run_wp_global_nav() {
 
 			?>
 
-			<a href="https://github.com/samuliristimaki/wordpress-global-nav-plugin" style="position: absolute; bottom: 0;">Project source</a>
+			<a href="https://github.com/samuliristimaki/wp-global-nav" style="position: absolute; bottom: 0;">Project source</a>
 
 		</form>
 		<?php

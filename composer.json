@@ -1,5 +1,5 @@
 {
-    "name": "samuliristimaki/wordpress-global-nav-plugin",
+    "name": "samuliristimaki/wp-global-nav",
     "description": "Frantic WP Global Navigation.",
     "type": "wordpress-plugin",
     "license": "MIT",

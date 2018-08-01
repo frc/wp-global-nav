@@ -1,9 +1,13 @@
 # WordPress Global Navigation Plugin
 
-A WordPress Plugin.
+Transforms your WordPress menu into a Web Component custom element.
+
+## Features
+
+- [WordPress Global Navigation Element](https://github.com/samuliristimaki/wp-global-nav-element)
 
 ## License
 
 Copyright (c) 2018 Samuli Ristimäki [@frc](https://github.com/frc)
 
-Source code is open source and released under the MIT license.
+Source code is open source and released under the GPL license.

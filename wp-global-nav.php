@@ -129,7 +129,7 @@ function run_wp_global_nav() {
 
 		add_settings_field( 
 			'wp_global_nav_text_field_0', 
-			__( 'Nav ID', 'wordpress' ), 
+			__( 'Nav ID:', 'wordpress' ), 
 			'wp_global_nav_text_field_0_render', 
 			'pluginPage', 
 			'wp_global_nav_pluginPage_section' 
@@ -176,32 +176,34 @@ function run_wp_global_nav() {
 		<form action='options.php' method='post'>
 
 			<h1>Global Navigation</h1>
+			<p>Transforms your WordPress menu into a Web Component custom element.</p>
 
 			<?php
 			settings_fields( 'pluginPage' );
 			do_settings_sections( 'pluginPage' );
 			submit_button();
+			echo '<br>';
 
-			echo __( 'Custom element:', 'wordpress' );
-			echo "<br>";
+			echo '<h4 style="margin-bottom: 0;">'.__( 'Custom element:', 'wordpress' ).'</h4>';
+			echo '<br>';
 
-			echo '<code style="display: inline-block; margin: 10px 1px 25px;">&lt;wp-global-nav url="'.home_url().'/wp-json/wp-global-nav/v2/menus/'.$options['wp_global_nav_text_field_0'].'"&gt;&lt;/wp-global-nav&gt;';
+			echo '<code style="display: inline-block; margin: 0px 1px 25px;">&lt;wp-global-nav url="'.home_url().'/wp-json/wp-global-nav/v2/menus/'.$options['wp_global_nav_text_field_0'].'"&gt;&lt;/wp-global-nav&gt;';
 			echo '&lt;script src="'.home_url().'/app/plugins/wp-global-nav/public/js/wp-global-nav.js"&gt;&lt;/script&gt;</code>';
-			echo "<br>";
+			echo '<br>';
 
-			echo __( 'Preview:', 'wordpress' );
-			echo "<br>";
+			echo '<h4 style="margin-bottom: 0;">'.__( 'Preview:', 'wordpress' ).'</h4>';
+			echo '<br>';
 
 			echo '<div style="width: 99%; height: 500px; background: white;">';
 			echo '<wp-global-nav url="'.home_url().'/wp-json/wp-global-nav/v2/menus/'.$options['wp_global_nav_text_field_0'].'"></wp-global-nav>';
 			echo '<script src="'.home_url().'/app/plugins/wp-global-nav/public/js/wp-global-nav.js"></script>';
+			echo '<iframe src="https://www.frantic.com" style="width: 100%; height: 100%;"></iframe>';
 			echo '</div>';
-
+			echo '<br>';
 			?>
 
-			<a href="https://github.com/samuliristimaki/wp-global-nav" style="position: absolute; bottom: 0;">Project source</a>
-
 		</form>
+		<a href="https://github.com/samuliristimaki/wp-global-nav" style="position: absolute; bottom: 0;">Project source</a>
 		<?php
 
 	}

@@ -1,12 +1,12 @@
 {
-    "name": "samuliristimaki/wp-global-nav",
+    "name": "frc/wp-global-nav",
     "description": "Frantic WP Global Navigation.",
     "type": "wordpress-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "samuliristimaki",
-            "email": "samuli.ristimaki@frantic.com"
+            "name": "frc",
+            "email": "hello@frantic.com"
         }
     ],
     "require": {

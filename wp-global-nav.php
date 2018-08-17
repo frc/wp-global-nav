@@ -14,11 +14,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Global Navigation
- * Plugin URI:        https://github.com/samuliristimaki/wp-global-nav
+ * Plugin URI:        https://github.com/frc/wp-global-nav
  * Description:       Transforms your WordPress menu into a Web Component custom element.
  * Version:           1.0.0
  * Author:            Samuli Ristimäki
- * Author URI:        https://samuliristimaki.life
+ * Author URI:        https://frantic.com
  * Licence: 		  GPLv3 or later
  * Text Domain:       wp-global-nav
  */
@@ -203,7 +203,7 @@ function run_wp_global_nav() {
 			?>
 
 		</form>
-		<a href="https://github.com/samuliristimaki/wp-global-nav" style="position: absolute; bottom: 0;">Project source</a>
+		<a href="https://github.com/frc/wp-global-nav" style="position: absolute; bottom: 0;">Project source</a>
 		<?php
 
 	}

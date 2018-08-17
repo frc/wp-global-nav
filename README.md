@@ -4,7 +4,7 @@ Transforms your WordPress menu into a Web Component custom element.
 
 ## Features
 
-- [WordPress Global Navigation Element](https://github.com/samuliristimaki/wp-global-nav-element)
+- [WordPress Global Navigation Element](https://github.com/frc/wp-global-nav-element)
 
 ## License
 
